@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,900');
+
 html, body{
 	margin: 0;
 	padding: 0;
@@ -7,6 +9,7 @@ html, body{
 
 body{
 	min-height: 100%;
+	font-family: "arial", "sans-serif";
 }
 
 *{
@@ -15,9 +18,33 @@ body{
 
 .wrapper {
 	text-align: center;
+	border: 1px solid black;
 
 	.container {
 		width: 50%;
 		margin:	auto;
+		border: 1px solid black;
+		overflow: hidden;
+
+		h1 {
+			font-family: 'Roboto', sans-serif;
+			font-weight: 400;
+		}
+
+		.character {
+			float: left;
+			border: 1px solid black;
+
+			.displayName {
+
+			}
+			.profilePicture {
+				width: 50%;
+
+				img {
+					width: 100%;
+				}
+			}
+		}
 	}
 }

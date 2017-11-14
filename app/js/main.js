@@ -16,9 +16,11 @@ $(function(){
 
 		displayName = e.Response.bungieNetUser.displayName;
 		console.log("Display Name :", displayName);
+		$(".displayName").html(displayName);
 
 		profilePicture = response.bungieNetUser.profilePicturePath;
 		console.log("Profile Picture :", profilePicture);
+		$(".profilePicture img").attr("src", "https://www.bungie.net" + profilePicture);
 
 		platform = response.destinyMemberships[0].membershipType;
 		console.log("Platform :", platform);
