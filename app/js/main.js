@@ -1,6 +1,18 @@
 $(function(){
 	console.log('Ready');
 
+	showPlaytime();
+
+	var minutesPlayedTotalOne;
+	var minutesPlayedTotalTwo;
+	var minutesPlayedTotalThree;
+
+	function showPlaytime() {
+		setTimeout(function() {
+			$(".totalPlaytime").html("Temps de jeu total : " + Math.round(minutesPlayedTotalOne / 60) + " heures");
+		}, 2500);
+	};
+
 	//GetBungieAccount
 	$.ajax({
 		url: "http://www.bungie.net/Platform/User/GetBungieAccount/5962930/254/",
@@ -10,7 +22,7 @@ $(function(){
 		dataType: "json",
 		headers: {
 			"x-api-key": "f37abf77de544293b9c2e5837a863462"
-		}
+	}
 	}).done(function(e) {
 		response = e.Response;
 
@@ -24,6 +36,9 @@ $(function(){
 
 		platform = response.destinyMemberships[0].membershipType;
 		console.log("Platform :", platform);
+		if(platform == 2) {
+			$(".playerPlatform").append("<img src='../img/psLogo.jpg'>");
+		}
 	});
 
 	//////////////////////////////
@@ -71,8 +86,8 @@ $(function(){
 		light = e.Response.character.data.light;
 		console.log("Light :", light);
 
-		minutesPlayedTotal = e.Response.character.data.minutesPlayedTotal;
-		console.log("Total Play Time :", Math.round(minutesPlayedTotal / 60) + " Hours");
+		minutesPlayedTotalOne = e.Response.character.data.minutesPlayedTotal;
+		console.log("Total Play Time :", Math.round(minutesPlayedTotalOne / 60) + " Hours");
 
 		raceType = e.Response.character.data.raceType;
 		console.log("Race Type :", raceType);
@@ -123,8 +138,8 @@ $(function(){
 		light = e.Response.character.data.light;
 		console.log("Light :", light);
 
-		minutesPlayedTotal = e.Response.character.data.minutesPlayedTotal;
-		console.log("Total Play Time :", Math.round(minutesPlayedTotal / 60) + " Hours");
+		minutesPlayedTotalTwo = e.Response.character.data.minutesPlayedTotal;
+		console.log("Total Play Time :", Math.round(minutesPlayedTotalTwo / 60) + " Hours");
 
 		raceType = e.Response.character.data.raceType;
 		console.log("Race Type :", raceType);
@@ -175,8 +190,8 @@ $(function(){
 		light = e.Response.character.data.light;
 		console.log("Light :", light);
 
-		minutesPlayedTotal = e.Response.character.data.minutesPlayedTotal;
-		console.log("Total Play Time :", Math.round(minutesPlayedTotal / 60) + " Hours");
+		minutesPlayedTotalThree = e.Response.character.data.minutesPlayedTotal;
+		console.log("Total Play Time :", Math.round(minutesPlayedTotalThree / 60) + " Hours");
 
 		raceType = e.Response.character.data.raceType;
 		console.log("Race Type :", raceType);

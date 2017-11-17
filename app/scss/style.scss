@@ -17,34 +17,62 @@ body{
 }
 
 .wrapper {
+	position: relative;
 	text-align: center;
 	border: 1px solid black;
 
 	.container {
-		width: 50%;
+		position: relative;
+		width: 80%;
 		margin:	auto;
 		border: 1px solid black;
 		overflow: hidden;
 
-		h1 {
-			font-family: 'Roboto', sans-serif;
-			font-weight: 400;
+		nav {
+			h1 {
+				font-family: 'Roboto', sans-serif;
+				font-weight: 400;
+				border: 1px solid black;
+				margin: 0;
+			}
 		}
 
-		.character {
-			float: left;
-			border: 1px solid black;
-
-			.displayName {
-
-			}
+		.loggedPlayer {
+		    text-align: left;
 			.profilePicture {
-				width: 50%;
+				float: left;
+				width: 10%;
+				height: inherit;
+				border: 1px solid black;
 
 				img {
 					width: 100%;
 				}
 			}
+			.playerPlatform {
+				float: right;
+				width: 10%;
+				height: inherit;
+				border: 1px solid black;
+				img {
+					width: 100%;
+				}
+			}
+			.displayName {
+				border: 1px solid black;
+			}
+			.playerInfo {
+				border: 1px solid black;
+
+				.totalPlaytime {
+					border: 1px solid black;
+				}
+			}
+
+		}
+
+		.characters {
+			border: 1px solid black;
 		}
 	}
 }
