@@ -9,8 +9,8 @@ $(function(){
 
 	function showPlaytime() {
 		setTimeout(function() {
-			$(".totalPlaytime").html("Temps de jeu total : " + Math.round(minutesPlayedTotalOne / 60) + " heures");
-		}, 2500);
+			$(".totalPlaytime").html("Temps de jeu total : " + Math.round((minutesPlayedTotalOne + minutesPlayedTotalTwo + minutesPlayedTotalThree) / 60) + " heures");
+		}, 2200);
 	};
 
 	//GetBungieAccount
@@ -88,6 +88,7 @@ $(function(){
 
 		minutesPlayedTotalOne = e.Response.character.data.minutesPlayedTotal;
 		console.log("Total Play Time :", Math.round(minutesPlayedTotalOne / 60) + " Hours");
+		$(".playerInfo p:nth-child(2)").html(Math.round(minutesPlayedTotalOne / 60) + "heures");
 
 		raceType = e.Response.character.data.raceType;
 		console.log("Race Type :", raceType);

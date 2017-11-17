@@ -62,9 +62,16 @@ body{
 				border: 1px solid black;
 			}
 			.playerInfo {
+				height: inherit;
 				border: 1px solid black;
 
 				.totalPlaytime {
+
+				}
+
+				p {
+					margin: 0;
+					display: inline-block;
 					border: 1px solid black;
 				}
 			}
