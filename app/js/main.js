@@ -9,7 +9,7 @@ $(function(){
 
 	function showPlaytime() {
 		setTimeout(function() {
-			$(".totalPlaytime").html("Temps de jeu total : " + Math.round((minutesPlayedTotalOne + minutesPlayedTotalTwo + minutesPlayedTotalThree) / 60) + " heures");
+			$(".totalPlaytime").html("Temps de jeu total : " + Math.round((parseInt(minutesPlayedTotalOne) + parseInt(minutesPlayedTotalTwo) + parseInt(minutesPlayedTotalThree) ) / 60) + " heures");
 		}, 2200);
 	};
 
@@ -46,7 +46,7 @@ $(function(){
 	/////////////////////////////
 
 	$.ajax({
-		url: "https://www.bungie.net/Platform/Destiny2/2/Profile/4611686018433071573/Character/2305843009262706284?components=200,205",
+		url: "https://www.bungie.net/Platform/Destiny2/2/Profile/4611686018433071573/Character/2305843009262706284?components=200,205&?definitions=true",
 		async: true,
   		crossDomain: true,
 		methode: "GET",
@@ -68,6 +68,8 @@ $(function(){
 
 		emblemBackgroundPath = e.Response.character.data.emblemBackgroundPath;
 		console.log("Emblem Bckg Path :", emblemBackgroundPath);
+		$(".emblems img:nth-child(2)").attr("src", "https://www.bungie.net" + emblemBackgroundPath);
+
 
 		emblemPath = e.Response.character.data.emblemPath;
 		console.log("Emblem Path :", emblemPath);
@@ -88,7 +90,7 @@ $(function(){
 
 		minutesPlayedTotalOne = e.Response.character.data.minutesPlayedTotal;
 		console.log("Total Play Time :", Math.round(minutesPlayedTotalOne / 60) + " Hours");
-		$(".playerInfo p:nth-child(2)").html(Math.round(minutesPlayedTotalOne / 60) + "heures");
+		$(".playerInfo p:nth-child(2)").html("Chasseur : " + Math.round(minutesPlayedTotalOne / 60) + " heures");
 
 		raceType = e.Response.character.data.raceType;
 		console.log("Race Type :", raceType);
@@ -141,6 +143,7 @@ $(function(){
 
 		minutesPlayedTotalTwo = e.Response.character.data.minutesPlayedTotal;
 		console.log("Total Play Time :", Math.round(minutesPlayedTotalTwo / 60) + " Hours");
+		$(".playerInfo p:nth-child(3)").html("Arcaniste : " + Math.round(minutesPlayedTotalTwo / 60) + " heures");
 
 		raceType = e.Response.character.data.raceType;
 		console.log("Race Type :", raceType);
@@ -193,6 +196,7 @@ $(function(){
 
 		minutesPlayedTotalThree = e.Response.character.data.minutesPlayedTotal;
 		console.log("Total Play Time :", Math.round(minutesPlayedTotalThree / 60) + " Hours");
+		$(".playerInfo p:nth-child(4)").html("Titan : " + Math.round(minutesPlayedTotalThree / 60) + " heures");
 
 		raceType = e.Response.character.data.raceType;
 		console.log("Race Type :", raceType);
