@@ -5,15 +5,23 @@ html, body{
 	padding: 0;
 	min-height: 100%;
 	overflow: hidden;
+	transition: 1s;
 }
 
 body{
 	min-height: 100%;
 	font-family: "arial", "sans-serif";
+	background-color: #434444;
+	color: white;
+	opacity: 0;
 }
 
 *{
 	box-sizing: border-box;
+}
+
+p {
+	margin: 0;
 }
 
 .wrapper {
@@ -23,10 +31,12 @@ body{
 
 	.container {
 		position: relative;
-		width: 80%;
+		width: 70%;
+		height: 100vh;
 		margin:	auto;
 		border: 1px solid black;
 		overflow: hidden;
+		background-color: rgba(245, 245, 245, 0.25);
 
 		nav {
 			h1 {
@@ -34,12 +44,15 @@ body{
 				font-weight: 400;
 				border: 1px solid black;
 				margin: 0;
+				background-color: #222;
+				color: #C9AE4B;
 			}
 		}
 
 		.loggedPlayer {
 		    text-align: left;
 			.profilePicture {
+				min-width: 100px;
 				float: left;
 				width: 10%;
 				height: inherit;
@@ -50,6 +63,7 @@ body{
 				}
 			}
 			.playerPlatform {
+				min-width: 100px;
 				float: right;
 				width: 10%;
 				height: inherit;
@@ -68,21 +82,70 @@ body{
 				.totalPlaytime {
 
 				}
+				.lastConnection {
 
-				p {
-					margin: 0;
-					display: inline-block;
+				}
+			}
+		}
+		.clear {
+			clear: both;
+		}
+		.characters {
+			border: 1px solid black;
+			height: 100vh;
+			.character {
+				position: relative;
+				border: 3px solid #C9AE4B;
+				display: inline-block;
+				width: 30%;
+				height: 50vh;
+				margin: 20px 10px;
+				.emblem {
+					position: relative;
+					img {
+						width: 100%;
+					}
+					.class {
+						position: absolute;
+						top: 5%;
+						left: 20%;
+						font-size: 20px
+					}
+					.race {
+						position: absolute;
+						top: 40%;
+						left: 20%;
+						font-size: 12px;
+					}
+					.gender {
+						position: absolute;
+						top: 65%;
+						left: 20%;
+						font-size: 12px;
+					}
+					.baseLevel {
+						position: absolute;
+						top: 60%;
+						right: 5%;
+					}
+					.lightLevel {
+						position: absolute;
+						top: 5%;
+						right: 5%;
+						font-size: 26px;
+						color: #C9AE4B;
+					}
+					.lightLevel::before {
+						content: "\2726";
+    					display: inline-block;
+    					vertical-align: 25%;
+    					font-size: 50%;
+					}
+				}
+				.playtime {
 					border: 1px solid black;
 				}
 			}
-			.emblems {
-				border: 1px solid black;
-			}
-
-		}
-
-		.characters {
-			border: 1px solid black;
 		}
 	}
 }

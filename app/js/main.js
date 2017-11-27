@@ -2,10 +2,17 @@ $(function(){
 	console.log('Ready');
 
 	showPlaytime();
+	showBody();
 
 	var minutesPlayedTotalOne;
 	var minutesPlayedTotalTwo;
 	var minutesPlayedTotalThree;
+
+	function showBody() {
+		setTimeout(function(){
+			$("body").css("opacity", "1");
+		}, 1000);
+	};
 
 	function showPlaytime() {
 		setTimeout(function() {
@@ -28,7 +35,7 @@ $(function(){
 
 		displayName = e.Response.bungieNetUser.displayName;
 		console.log("Display Name :", displayName);
-		$(".displayName").html(displayName);
+		$(".displayName p").html(displayName);
 
 		profilePicture = response.bungieNetUser.profilePicturePath;
 		console.log("Profile Picture :", profilePicture);
@@ -59,17 +66,25 @@ $(function(){
 
 		baseLevel = e.Response.character.data.baseCharacterLevel;
 		console.log("Base Level I :", baseLevel);
+		$(".hunter .baseLevel").html(baseLevel);
 
 		classType = e.Response.character.data.classType;
 		console.log("Class Type :", classType);
+		if(classType == 0) {
+			$(".hunter .class").html("Titan");
+		} else if(classType == 1) {
+			$(".hunter .class").html("Chasseur");
+		} else {
+			$(".hunter .class").html("Arcaniste");
+		};
 
 		dateLastPlayed = e.Response.character.data.dateLastPlayed;
 		console.log("Last Connection :", dateLastPlayed);
+		$(".lastConnection").html("Dernière Connexion : " + dateLastPlayed);
 
 		emblemBackgroundPath = e.Response.character.data.emblemBackgroundPath;
 		console.log("Emblem Bckg Path :", emblemBackgroundPath);
-		$(".emblems img:nth-child(2)").attr("src", "https://www.bungie.net" + emblemBackgroundPath);
-
+		$(".hunter .emblem img").attr("src", "https://www.bungie.net" + emblemBackgroundPath);
 
 		emblemPath = e.Response.character.data.emblemPath;
 		console.log("Emblem Path :", emblemPath);
@@ -84,16 +99,29 @@ $(function(){
 
 		genderType = e.Response.character.data.genderType;
 		console.log("Gender type :", genderType);
+		if(genderType == 0) {
+			$(".hunter .gender").html("Homme");
+		} else {
+			$(".hunter .gender").html("Femme");
+		};
 
 		light = e.Response.character.data.light;
 		console.log("Light :", light);
+		$(".hunter .lightLevel").html(light);
 
 		minutesPlayedTotalOne = e.Response.character.data.minutesPlayedTotal;
 		console.log("Total Play Time :", Math.round(minutesPlayedTotalOne / 60) + " Hours");
-		$(".playerInfo p:nth-child(2)").html("Chasseur : " + Math.round(minutesPlayedTotalOne / 60) + " heures");
+		$(".hunter .playtime").html(Math.round(minutesPlayedTotalOne / 60) + " heures");
 
 		raceType = e.Response.character.data.raceType;
 		console.log("Race Type :", raceType);
+		if(raceType == 0) {
+			$(".hunter .race").html("Humain");
+		} else if(raceType == 1) {
+			$(".hunter .race").html("Eveillé");
+		} else {
+			$(".hunter .race").html("Exo");
+		};
 	});
 
 	//////////////////////////////
@@ -114,15 +142,24 @@ $(function(){
 
 		baseLevel = e.Response.character.data.baseCharacterLevel;
 		console.log("Base Level I :", baseLevel);
+		$(".warlock .baseLevel").html(baseLevel);
 
 		classType = e.Response.character.data.classType;
 		console.log("Class Type :", classType);
+		if(classType == 0) {
+			$(".warlock .class").html("Titan");
+		} else if(classType == 1) {
+			$(".warlock .class").html("Chasseur");
+		} else {
+			$(".warlock .class").html("Arcaniste");
+		};
 
 		dateLastPlayed = e.Response.character.data.dateLastPlayed;
 		console.log("Last Connection :", dateLastPlayed);
 
 		emblemBackgroundPath = e.Response.character.data.emblemBackgroundPath;
 		console.log("Emblem Bckg Path :", emblemBackgroundPath);
+		$(".warlock .emblem img").attr("src", "https://www.bungie.net" + emblemBackgroundPath);
 
 		emblemPath = e.Response.character.data.emblemPath;
 		console.log("Emblem Path :", emblemPath);
@@ -137,16 +174,29 @@ $(function(){
 
 		genderType = e.Response.character.data.genderType;
 		console.log("Gender type :", genderType);
+		if(genderType == 0) {
+			$(".warlock .gender").html("Homme");
+		} else {
+			$(".warlock .gender").html("Femme");
+		};
 
 		light = e.Response.character.data.light;
 		console.log("Light :", light);
+		$(".warlock .lightLevel").html(light);
 
 		minutesPlayedTotalTwo = e.Response.character.data.minutesPlayedTotal;
 		console.log("Total Play Time :", Math.round(minutesPlayedTotalTwo / 60) + " Hours");
-		$(".playerInfo p:nth-child(3)").html("Arcaniste : " + Math.round(minutesPlayedTotalTwo / 60) + " heures");
+		$(".warlock .playtime").html(Math.round(minutesPlayedTotalTwo / 60) + " heures");
 
 		raceType = e.Response.character.data.raceType;
 		console.log("Race Type :", raceType);
+		if(raceType == 0) {
+			$(".warlock .race").html("Humain");
+		} else if(raceType == 1) {
+			$(".warlock .race").html("Eveillé");
+		} else {
+			$(".warlock .race").html("Exo");
+		};
 	});
 
 	//////////////////////////////
@@ -167,15 +217,24 @@ $(function(){
 
 		baseLevel = e.Response.character.data.baseCharacterLevel;
 		console.log("Base Level I :", baseLevel);
+		$(".titan .baseLevel").html(baseLevel);
 
 		classType = e.Response.character.data.classType;
 		console.log("Class Type :", classType);
+		if(classType == 0) {
+			$(".titan .class").html("Titan");
+		} else if(classType == 1) {
+			$(".titan .class").html("Chasseur");
+		} else {
+			$(".titan .class").html("Arcaniste");
+		};
 
 		dateLastPlayed = e.Response.character.data.dateLastPlayed;
 		console.log("Last Connection :", dateLastPlayed);
 
 		emblemBackgroundPath = e.Response.character.data.emblemBackgroundPath;
 		console.log("Emblem Bckg Path :", emblemBackgroundPath);
+		$(".titan .emblem img").attr("src", "https://www.bungie.net" + emblemBackgroundPath);
 
 		emblemPath = e.Response.character.data.emblemPath;
 		console.log("Emblem Path :", emblemPath);
@@ -190,15 +249,28 @@ $(function(){
 
 		genderType = e.Response.character.data.genderType;
 		console.log("Gender type :", genderType);
+		if(genderType == 0) {
+			$(".titan .gender").html("Homme");
+		} else {
+			$(".titan .gender").html("Femme");
+		};
 
 		light = e.Response.character.data.light;
 		console.log("Light :", light);
+		$(".titan .lightLevel").html(light);
 
 		minutesPlayedTotalThree = e.Response.character.data.minutesPlayedTotal;
 		console.log("Total Play Time :", Math.round(minutesPlayedTotalThree / 60) + " Hours");
-		$(".playerInfo p:nth-child(4)").html("Titan : " + Math.round(minutesPlayedTotalThree / 60) + " heures");
+		$(".titan .playtime").html(Math.round(minutesPlayedTotalThree / 60) + " heures");
 
 		raceType = e.Response.character.data.raceType;
 		console.log("Race Type :", raceType);
+		if(raceType == 0) {
+			$(".titan .emblem .race").html("Humain");
+		} else if(raceType == 1) {
+			$(".titan .race").html("Eveillé");
+		} else {
+			$(".titan .race").html("Exo");
+		};
 	});
 });
