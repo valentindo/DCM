@@ -3,6 +3,7 @@ $(function(){
 
 	showPlaytime();
 	showBody();
+	showCharacters();
 
 	var minutesPlayedTotalOne;
 	var minutesPlayedTotalTwo;
@@ -17,7 +18,13 @@ $(function(){
 	function showPlaytime() {
 		setTimeout(function() {
 			$(".totalPlaytime").html("Temps de jeu total : " + Math.round((parseInt(minutesPlayedTotalOne) + parseInt(minutesPlayedTotalTwo) + parseInt(minutesPlayedTotalThree) ) / 60) + " heures");
-		}, 2200);
+		}, 2300);
+	};
+
+	function showCharacters() {
+		setTimeout(function(){
+				$(".characters").css("opacity", "1");
+		}, 2500);
 	};
 
 	//GetBungieAccount
@@ -43,8 +50,12 @@ $(function(){
 
 		platform = response.destinyMemberships[0].membershipType;
 		console.log("Platform :", platform);
-		if(platform == 2) {
+		if(platform == 1) {
+			$(".playerPlatform").append("<img src='../img/xboxLogo.png'>");
+		} else if(platform == 2) {
 			$(".playerPlatform").append("<img src='../img/psLogo.jpg'>");
+		} else if(platofrm == 4) {
+			$(".playerPlatform").append("<img src='../img/battlenetLogo.jpg'>");
 		}
 	});
 
@@ -122,6 +133,11 @@ $(function(){
 		} else {
 			$(".hunter .race").html("Exo");
 		};
+
+		///// Equipment /////
+
+		equip = e.Response.equipment.data.items[0];
+		console.log("XXXXXXX", equip);
 	});
 
 	//////////////////////////////

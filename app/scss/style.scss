@@ -5,7 +5,6 @@ html, body{
 	padding: 0;
 	min-height: 100%;
 	overflow: hidden;
-	transition: 1s;
 }
 
 body{
@@ -14,6 +13,7 @@ body{
 	background-color: #434444;
 	color: white;
 	opacity: 0;
+	transition: 1s;
 }
 
 *{
@@ -27,14 +27,11 @@ p {
 .wrapper {
 	position: relative;
 	text-align: center;
-	border: 1px solid black;
-
 	.container {
 		position: relative;
 		width: 70%;
 		height: 100vh;
 		margin:	auto;
-		border: 1px solid black;
 		overflow: hidden;
 		background-color: rgba(245, 245, 245, 0.25);
 
@@ -42,10 +39,24 @@ p {
 			h1 {
 				font-family: 'Roboto', sans-serif;
 				font-weight: 400;
-				border: 1px solid black;
+
 				margin: 0;
 				background-color: #222;
 				color: #C9AE4B;
+			}
+			h1::before {
+				content: "\2726";
+				display: inline-block;
+				vertical-align: 25%;
+				font-size: 50%;
+				margin-right: 10px;
+			}
+			h1::after {
+				content: "\2726";
+				display: inline-block;
+				vertical-align: 25%;
+				font-size: 50%;
+				margin-left: 10px;
 			}
 		}
 
@@ -73,17 +84,17 @@ p {
 				}
 			}
 			.displayName {
-				border: 1px solid black;
+
 			}
 			.playerInfo {
 				height: inherit;
 				border: 1px solid black;
 
 				.totalPlaytime {
-
+					border: 1px solid black;
 				}
 				.lastConnection {
-
+					border: 1px solid black;
 				}
 			}
 		}
@@ -91,6 +102,8 @@ p {
 			clear: both;
 		}
 		.characters {
+			opacity: 0;
+			transition: 1s;
 			border: 1px solid black;
 			height: 100vh;
 			.character {
@@ -102,6 +115,7 @@ p {
 				margin: 20px 10px;
 				.emblem {
 					position: relative;
+					border-bottom: 3px solid #c9ae4b;
 					img {
 						width: 100%;
 					}
@@ -143,7 +157,7 @@ p {
 					}
 				}
 				.playtime {
-					border: 1px solid black;
+
 				}
 			}
 		}
